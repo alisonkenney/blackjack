@@ -1,0 +1,67 @@
+.block {
+	border: solid black 3px;
+	height: 270px;
+	margin: 45px 5px 5px 5px;
+	background-color: white;
+	
+}
+
+.board {
+	border: solid black 3px;
+	background-color: green;
+	height: 700px;
+	padding-bottom: 50px;
+	margin-right: 10px;
+	border-radius: 70px;
+}
+
+body {
+	background-color: black;
+}
+
+.title {
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	background-color: green;
+	border: none;
+	color: white;
+}
+
+.scoreboard {
+	border: solid white 3px;
+	color: white;
+	float: right;
+	margin-right: 15px;
+	height: 300px;
+}
+
+.heading {
+	color: white;
+	text-align: center;
+}
+
+h2 {
+	color: white;
+	font-size: 25px;
+}
+
+p {
+	display: inline-block;
+}
+
+#footer {
+	border: solid white 3px;
+	background-color: white;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}
+
+.footer {
+	color: black;
+}
+
+.text {
+	display: inline-block;
+}

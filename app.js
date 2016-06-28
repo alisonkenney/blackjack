@@ -21,4 +21,4 @@ if (deal%2 === 0) {
     var outcome = "odd";
 }
 
-confirm("Are you ready to move on?");
+//confirm("Are you ready to move on?");
