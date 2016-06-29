@@ -36,7 +36,7 @@ body {
 
 .scoreboard {
 	/*border: solid white 3px;*/
-	color: #FF3030;
+	color: #B22222;
 	height: 300px;
 }
 
@@ -61,18 +61,18 @@ p {
 }
 
 .new-game {
-	background-color: #FF3030;
+	background-color: #B22222;
 	color: #FFFFE0;
 	font-weight: bold;
 }
 
 .hit {
-	color: #FF3030;
+	color: #B22222;
 	font-weight: bold;
 }
 
 .stand {
-	color: #FF3030;
+	color: #B22222;
 	font-weight: bold;
 }
 

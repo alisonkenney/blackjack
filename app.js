@@ -42,12 +42,12 @@ var count = 0;
 		createCard: function() {
 			this.cardDiv = document.createElement("div");
 			this.cardDiv.setAttribute("class", this.currentCard);
-			this.playerBox.appendChild(this.cardDiv);
+			//this.playerBox.appendChild(this.cardDiv);
 			//console.log(this.playerBox);
 			
 		},
 
-		realValue: function() {
+		calcRealValue: function() {
 			if (typeof(this.value) === "number") {
 				this.realValue = this.value;
 			}else if (this.value === "a") {
@@ -61,16 +61,43 @@ var count = 0;
 			this.setSuit();
 			this.setValue();
 			this.setCard();
+			this.calcRealValue();
 			this.createCard();
 		}	
 
 	}; 
 
-	new Card(playerBox[2][0]).start();
 
+function onNewGame() {
+	newGameButton.click(newGame);
+	console.log(newGameButton);
+}
+onNewGame();
+
+function newGame() {
+	var playerCard1 = new Card();
+	playerCard1.start();
+	playerBox[0].append(playerCard1.cardDiv);
+
+	var playerCard2 = new Card();
+	playerCard2.start();
+	playerBox[1].append(playerCard2.cardDiv);
+
+	var dealerCard1 = new Card();
+	dealerCard1.start();
+	dealerBox[0].append(dealerCard1.cardDiv);
+
+	var faceDown = document.createElement("div");
+	faceDown.setAttribute("class", "cardFaceDown");
+	dealerBox[1].append(faceDown);
+}
+
+function onHit() {
+	hitButton.click(playerMove);
+	console.log(playermove);
+}
 
 };
-
 
 //New Game:
 //On load, the player will need to click "New Game" in order to start a new game.
