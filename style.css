@@ -1,48 +1,52 @@
 .block {
-	border: solid black 3px;
-	height: 270px;
+	border: solid #FBEC5D 3px;
+	height: 200px;
 	margin: 45px 5px 5px 5px;
-	background-color: white;
+	background-color: #3EA055;
+	border-radius: 15px;
+	padding-top: 5px;
 	
 }
 
 .board {
-	border: solid black 3px;
-	background-color: green;
-	height: 700px;
+	border: solid #8B4726 8px;
+	background-color: #3EA055;
+	height: 550px;
 	padding-bottom: 50px;
-	margin-right: 10px;
-	border-radius: 70px;
+	border-radius: 50px;
+	opacity: 0.8;
 }
 
 body {
-	background-color: black;
+	background-image: url("https://www.colourbox.com/preview/12193130-luxury-black-poker-background-with-card-symbols.jpg");
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 .title {
-	font-size: 30px;
+	font-size: 22px;
 	text-align: center;
 	font-weight: bold;
 	background-color: green;
 	border: none;
-	color: white;
+	color: #FFFFE0;
+	padding-top: 8px;
+	border-radius: 30px;
 }
 
 .scoreboard {
-	border: solid white 3px;
-	color: white;
-	float: right;
-	margin-right: 15px;
+	/*border: solid white 3px;*/
+	color: #FF3030;
 	height: 300px;
 }
 
 .heading {
-	color: white;
+	color: #FFFFE0;
 	text-align: center;
 }
 
 h2 {
-	color: white;
+	color: #FFFFE0;
 	font-size: 25px;
 }
 
@@ -50,18 +54,395 @@ p {
 	display: inline-block;
 }
 
-#footer {
-	border: solid white 3px;
-	background-color: white;
-	bottom: 0;
-	position: fixed;
-	width: 100%;
+.btn {
+	background-color: #FFFFE0;
+	width: 150px;
+	margin-top: 5px;
 }
 
-.footer {
-	color: black;
+.new-game {
+	background-color: #FF3030;
+	color: #FFFFE0;
+	font-weight: bold;
 }
 
-.text {
-	display: inline-block;
+.hit {
+	color: #FF3030;
+	font-weight: bold;
+}
+
+.stand {
+	color: #FF3030;
+	font-weight: bold;
+}
+
+.heartsa {
+	background-image: url("https://i.imgur.com/5RgJMtN.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.heartsk {
+	background-image: url("https://i.imgur.com/BfoZMyA.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.heartsq {
+	background-image: url("https://i.imgur.com/rlKVspX.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.heartsj {
+	background-image: url("https://i.imgur.com/e1bpHQm.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts10 {
+	background-image: url("https://i.imgur.com/rgsf2v1.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts9 {
+	background-image: url("https://i.imgur.com/sLt5hEa.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts8 {
+	background-image: url("https://i.imgur.com/rUwVzxH.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts7 {
+	background-image: url("https://i.imgur.com/007MQ09.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts6 {
+	background-image: url("https://i.imgur.com/PRvBxl2.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts5 {
+	background-image: url("http://i.imgur.com/pG8K5nt.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts4 {
+	background-image: url("http://i.imgur.com/VwaProC.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts3 {
+	background-image: url("http://i.imgur.com/EcSHjWU.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.hearts2 {
+	background-image: url("http://i.imgur.com/RVrBDpY.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamondsa {
+	background-image: url("http://i.imgur.com/Dh4nMFf.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamondsk {
+	background-image: url("http://i.imgur.com/M9SkNtQ.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamondsq {
+	background-image: url("http://i.imgur.com/FXTaSif.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamondsj {
+	background-image: url("http://i.imgur.com/pUxUBig.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds10 {
+	background-image: url("http://i.imgur.com/rWkEkDt.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds9 {
+	background-image: url("http://i.imgur.com/879Klsr.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds8 {
+	background-image: url("http://i.imgur.com/Y5PjkxH.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds7 {
+	background-image: url("http://i.imgur.com/o9S9cGu.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds6 {
+	background-image: url("http://i.imgur.com/rEPBQSG.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds5 {
+	background-image: url("http://i.imgur.com/Pua0bjC.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds4 {
+	background-image: url("http://i.imgur.com/MwujjwO.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds3 {
+	background-image: url("http://i.imgur.com/jgzxADy.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.diamonds2 {
+	background-image: url("http://i.imgur.com/9JqOsXp.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spadesa {
+	background-image: url("http://i.imgur.com/Wv1yFeJ.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spadesk {
+	background-image: url("http://i.imgur.com/mstPvnS.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spadesq {
+	background-image: url("http://i.imgur.com/2wc9GP8.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spadesj {
+	background-image: url("http://i.imgur.com/1mEhc76.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades10 {
+	background-image: url("http://i.imgur.com/CJz8d15.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades9 {
+	background-image: url("http://i.imgur.com/5aZd4O5.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades8 {
+	background-image: url("http://i.imgur.com/IkQgBCa.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades7 {
+	background-image: url("http://i.imgur.com/sEfgMqr.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades6 {
+	background-image: url("http://i.imgur.com/9ihTwje.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades5 {
+	background-image: url("http://i.imgur.com/0O2QJFI.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades4 {
+	background-image: url("http://i.imgur.com/ybIshue.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades3 {
+	background-image: url("http://i.imgur.com/uppopuv.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.spades2 {
+	background-image: url("http://i.imgur.com/nkBzjTw.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubsa {
+	background-image: url("http://i.imgur.com/XKAEDTf.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubsk {
+	background-image: url("http://i.imgur.com/P81QiNc.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubsq {
+	background-image: url("http://i.imgur.com/0aVQDQV.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubsj {
+	background-image: url("http://i.imgur.com/rjYZVaP.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs10 {
+	background-image: url("http://i.imgur.com/p739EoT.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs9 {
+	background-image: url("http://i.imgur.com/tFimgQe.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs8 {
+	background-image: url("http://i.imgur.com/KgK1KW9.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs7 {
+	background-image: url("http://i.imgur.com/JSg2Rmo.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs6 {
+	background-image: url("http://i.imgur.com/H1RQrkI.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs5 {
+	background-image: url("http://i.imgur.com/rgQDJMf.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs4 {
+	background-image: url("http://i.imgur.com/7lcu8np.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs3 {
+	background-image: url("http://i.imgur.com/3x1zXMa.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.clubs2 {
+	background-image: url("http://i.imgur.com/lCSX1GV.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.cardFaceDown {
+	background-image: url("http://i.imgur.com/MuPZLmH.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 250px;
 }
