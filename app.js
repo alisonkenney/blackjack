@@ -7,7 +7,12 @@ var standButton = $(".stand");
 var newGameButton = $(".new-game");
 var dealerBox = [$("#box2"), $("#box3"), $("#box4"), $("#box5"), $("#box6")];
 var playerBox = [$("#box8"), $("#box9"), $("#box10"), $("#box11"), $("#box12")];
-var count = 0;
+var playerCount = 0;
+var dealerCount = 0;
+var dealerSum = [];
+var playerSum = [];
+var result = "";
+
 //var newGameButton = $(".new-game");
 
 
@@ -26,24 +31,19 @@ var count = 0;
 
 		setSuit: function() {
 			this.suit = suitArray[Math.floor(suitArray.length * Math.random())];
-			console.log(this.suit);
 		},
 
 		setValue: function() {
 			this.value = valueArray[Math.floor(valueArray.length * Math.random())];
-			console.log(this.value);
 		},
 
 		setCard: function() {
 			this.currentCard = (this.suit + this.value);
-			console.log(this.currentCard);
 		},
 
 		createCard: function() {
 			this.cardDiv = document.createElement("div");
 			this.cardDiv.setAttribute("class", this.currentCard);
-			//this.playerBox.appendChild(this.cardDiv);
-			//console.log(this.playerBox);
 			
 		},
 
@@ -70,34 +70,197 @@ var count = 0;
 
 function onNewGame() {
 	newGameButton.click(newGame);
-	console.log(newGameButton);
 }
 onNewGame();
 
 function newGame() {
-	var playerCard1 = new Card();
-	playerCard1.start();
-	playerBox[0].append(playerCard1.cardDiv);
+	playerSum = [];
+	dealerSum = [];
 
-	var playerCard2 = new Card();
-	playerCard2.start();
-	playerBox[1].append(playerCard2.cardDiv);
+		$('#box2').empty();
+		$('#box3').empty();
+		$('#box4').empty();
+		$('#box5').empty();
+		$('#box6').empty();
+		$('#box8').empty();
+		$('#box9').empty();
+		$('#box10').empty();
+		$('#box11').empty();
+		$('#box12').empty();
 
-	var dealerCard1 = new Card();
-	dealerCard1.start();
-	dealerBox[0].append(dealerCard1.cardDiv);
+		var playerCard1 = new Card();
+		playerCard1.start();
+		playerBox[0].append(playerCard1.cardDiv);
+		playerSum.push(playerCard1.realValue);
 
-	var faceDown = document.createElement("div");
-	faceDown.setAttribute("class", "cardFaceDown");
-	dealerBox[1].append(faceDown);
+		var playerCard2 = new Card();
+		playerCard2.start();
+		playerBox[1].append(playerCard2.cardDiv);
+		playerSum.push(playerCard2.realValue);
+
+		var dealerCard1 = new Card();
+		dealerCard1.start();
+		dealerBox[0].append(dealerCard1.cardDiv);
+		dealerSum.push(dealerCard1.realValue);
+
+		var faceDown = document.createElement("div");
+		faceDown.setAttribute("class", "cardFaceDown");
+		dealerBox[1].append(faceDown);
+
+		playerCount = 2;
+		dealerCount = 2;
+ 	
 }
 
 function onHit() {
 	hitButton.click(playerMove);
-	console.log(playermove);
+	hitButton.click(playerCheck);
+}
+onHit();
+
+function playerMove() {
+
+		if (playerCount === 2) {
+			var playerCard3 = new Card();
+			playerCard3.start();
+			playerBox[2].append(playerCard3.cardDiv);
+			playerSum.push(playerCard3.realValue);
+			playerCount ++;
+		}else if (playerCount ===3) {
+			var playerCard4 = new Card();
+			playerCard4.start();
+			playerBox[3].append(playerCard4.cardDiv);
+			playerSum.push(playerCard4.realValue);
+			playerCount ++;
+		}else if (playerCount === 4) {
+			var playerCard5 = new Card();
+			playerCard5.start();
+			playerBox[4].append(playerCard5.cardDiv);
+			playerSum.push(playerCard5.realValue);
+			playerCount ++;
+		}else {
+
+		}
+
 }
 
+function onStand() {
+	standButton.click(dealerTurn);
+}
+onStand();
+
+function dealerTurn() {
+	$('#box3').empty();
+	var dealerCard2 = new Card();
+	dealerCard2.start();
+	dealerBox[1].append(dealerCard2.cardDiv);
+	dealerSum.push(dealerCard2.realValue);
+	result = dealerCheck();
+
+	if (result === "bust") {
+		alert("DEALER BUSTED! YOU WIN!");
+	} else if (result === "tie") {
+		alert("You Tied. Play Again.");
+	} else {
+		alert("Dealer Wins!");
+	}
+
+}
+
+/*function dealerMove() {
+	
+
+	var dealerCard4 = new Card();
+	dealerCard4.start();
+
+	var dealerCard5 = new Card();
+	dealerCard5.start();
+
+}*/
+
+function dealerCheck() {
+	var playerTotal = 0;
+	playerSum.map(function(item){ 
+		playerTotal += item; 
+	});	
+	
+	var dealerTotal = 0; 
+	dealerSum.map(function(item){ 
+		dealerTotal += item; 
+	});
+	console.log(dealerTotal);
+	if (dealerTotal <= 21) {
+		if (dealerTotal < playerTotal) {
+			if (dealerCount === 2) {	
+				var dealerCard3 = new Card();
+				dealerCard3.start();
+				dealerBox[2].append(dealerCard3.cardDiv);
+				dealerSum.push(dealerCard3.realValue);
+				dealerCount ++;
+				result = dealerCheck();
+			}else if (dealerCount ===3 ) {
+				var dealerCard4 = new Card();
+				dealerCard4.start();
+				dealerBox[3].append(dealerCard4.cardDiv);
+				dealerSum.push(dealerCard4.realValue);
+				dealerCount ++;
+				result = dealerCheck();
+			}else if (dealerCount === 4) {
+				var dealerCard5 = new Card();
+				dealerCard5.start();
+				dealerBox[4].append(dealerCard5.cardDiv);
+				dealerSum.push(dealerCard5.realValue);
+				dealerCount ++;
+				result = dealerCheck();
+			}else {
+
+			}
+		}
+		
+	}else if (dealerTotal > 21) {
+		result = "bust"; 
+	}else if (dealerTotal === playerTotal) {
+		result = "tie";
+	}
+	return result;
+	
+}
+
+function playerCheck() {		
+	var playerTotal = 0;
+	playerSum.map(function(item){ 
+		playerTotal += item; 
+	});
+	if (playerTotal > 21) {
+		alert("YOU BUSTED! Dealer Wins.");
+	}
+}
+
+
+
+
 };
+
+
+
+	/*if (count === 2) {
+		if ((dealerTotal > playerTotal) && (dealerTotal < 21)) {
+			alert("Dealer Wins. Play Again.");
+		}else if ((dealerTotal <= playerTotal)) {
+			var dealerCard3 = new Card();
+			dealerCard3.start();
+			dealerBox[2].append(dealerCard3.cardDiv);
+			dealerSum.push(dealerCard3.realValue);
+			dealerCheck();
+			playerCheck();
+				if ((dealerTotal > playerTotal) && (dealerTotal < 21)) {
+					alert("Dealer Wins. Play Again.");	
+				}
+		}
+	
+	}*/	
+
+
 
 //New Game:
 //On load, the player will need to click "New Game" in order to start a new game.
