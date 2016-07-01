@@ -22,6 +22,6 @@ I approached each of these steps one at a time. There were several times when I 
 I was able to get a betting function to work in the end, which allows a player to place a bet between 1 and 100, and they win that amount if they win the hand, and lose that amount if they lose the hand.
 
 Installation instructions
--View and play game here - 
+-View and play game here - https://alisonkenney.github.io/blackjack/
 -To install, fork the repository here - 
 
