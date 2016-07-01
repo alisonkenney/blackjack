@@ -1,19 +1,22 @@
 window.onload = function() {
 
+alert("Welcome! Place your bet to start the game!");	
+
 var suitArray = ["hearts", "diamonds", "spades", "clubs"];
 var valueArray = [2,3,4,5,6,7,8,9,10,"j","q","k","a"];
 var hitButton = $(".hit");
 var standButton = $(".stand");
 var newGameButton = $(".new-game");
+var placeBetButton = $(".place-bet");
 var dealerBox = [$("#box2"), $("#box3"), $("#box4"), $("#box5"), $("#box6")];
 var playerBox = [$("#box8"), $("#box9"), $("#box10"), $("#box11"), $("#box12")];
 var playerCount = 0;
 var dealerCount = 0;
 var dealerSum = [];
 var playerSum = [];
-var result = "";
-
-//var newGameButton = $(".new-game");
+var moneyShown = ("$" + money);
+var money = 100;
+var betInput;
 
 
 	function Card(playerBox, dealerBox) {
@@ -68,15 +71,12 @@ var result = "";
 	}; 
 
 
-function onNewGame() {
-	newGameButton.click(newGame);
-}
-onNewGame();
+	function onNewGame() {
+		newGameButton.click(newGame);
+	}
+	onNewGame();
 
-function newGame() {
-	playerSum = [];
-	dealerSum = [];
-
+	function clearBoard() {
 		$('#box2').empty();
 		$('#box3').empty();
 		$('#box4').empty();
@@ -87,7 +87,38 @@ function newGame() {
 		$('#box10').empty();
 		$('#box11').empty();
 		$('#box12').empty();
+	}
 
+	function newGame() {
+		playerSum = [];
+		dealerSum = [];
+		clearBoard();
+	 	onBet();
+	 	newGameButton.unbind();
+	}
+
+	function onBet() {
+		placeBetButton.click(playerBet);
+	}
+	onBet();
+
+	function playerBet() {
+		clearBoard();
+		moneyShown = $(".money");
+		betInput = $('#bet').val();
+		resultInput = parseInt(betInput);
+		console.log(betInput);
+
+		if ((betInput <= 100) && (betInput >=1)) {
+			layCards();
+			placeBetButton.unbind();
+		}else {
+			alert("Not a valid input, try again!");
+		}
+
+	}
+
+	function layCards() {
 		var playerCard1 = new Card();
 		playerCard1.start();
 		playerBox[0].append(playerCard1.cardDiv);
@@ -109,17 +140,15 @@ function newGame() {
 
 		playerCount = 2;
 		dealerCount = 2;
- 	
-}
+	}
 
-function onHit() {
-	hitButton.click(playerMove);
-	hitButton.click(playerCheck);
-}
-onHit();
+	function onHit() {
+		hitButton.click(playerMove);
+		hitButton.click(playerCheck);
+	}
+	onHit();
 
-function playerMove() {
-
+	function playerMove() {
 		if (playerCount === 2) {
 			var playerCard3 = new Card();
 			playerCard3.start();
@@ -139,105 +168,122 @@ function playerMove() {
 			playerSum.push(playerCard5.realValue);
 			playerCount ++;
 		}else {
-
 		}
-
-}
-
-function onStand() {
-	standButton.click(dealerTurn);
-}
-onStand();
-
-function dealerTurn() {
-	$('#box3').empty();
-	var dealerCard2 = new Card();
-	dealerCard2.start();
-	dealerBox[1].append(dealerCard2.cardDiv);
-	dealerSum.push(dealerCard2.realValue);
-	result = dealerCheck();
-
-	if (result === "bust") {
-		alert("DEALER BUSTED! YOU WIN!");
-	} else if (result === "tie") {
-		alert("You Tied. Play Again.");
-	} else {
-		alert("Dealer Wins!");
 	}
 
-}
+	function onStand() {
+		standButton.click(dealerTurn);
+	}
+	onStand();
 
-/*function dealerMove() {
-	
+	function dealerTurn() {
+		$('#box3').empty();
+		var dealerCard2 = new Card();
+		dealerCard2.start();
+		dealerBox[1].append(dealerCard2.cardDiv);
+		dealerSum.push(dealerCard2.realValue);
+		console.log(dealerSum);
+		standButton.unbind();
+		var result = dealerCheck();
 
-	var dealerCard4 = new Card();
-	dealerCard4.start();
+		if (result === "bust") {
+			alert("Dealer bust. You win!");
+			hitButton.unbind();
+			standButton.unbind();
+			playerWin();
+			onNewGame();
+			onHit();
+			onStand();
+		} else if (result === "tie") {
+			alert("You Tied. Play Again.");
+			hitButton.unbind();
+			standButton.unbind();
+			onNewGame();
+			onHit();
+			onStand();
+		} else {
+			alert("Dealer Wins. Play Again.");
+			hitButton.unbind();	
+			standButton.unbind();
+			playerLose();
+			onNewGame();
+			onHit();
+			onStand();
+		}
+	}
 
-	var dealerCard5 = new Card();
-	dealerCard5.start();
+	function playerWin() {
+		money = (money + resultInput);
+		$(".money").text("$" + money);
+	}
 
-}*/
 
-function dealerCheck() {
-	var playerTotal = 0;
-	playerSum.map(function(item){ 
-		playerTotal += item; 
-	});	
-	
-	var dealerTotal = 0; 
-	dealerSum.map(function(item){ 
-		dealerTotal += item; 
-	});
-	console.log(dealerTotal);
-	if (dealerTotal <= 21) {
-		if (dealerTotal < playerTotal) {
-			if (dealerCount === 2) {	
-				var dealerCard3 = new Card();
-				dealerCard3.start();
-				dealerBox[2].append(dealerCard3.cardDiv);
-				dealerSum.push(dealerCard3.realValue);
-				dealerCount ++;
-				result = dealerCheck();
-			}else if (dealerCount ===3 ) {
-				var dealerCard4 = new Card();
-				dealerCard4.start();
-				dealerBox[3].append(dealerCard4.cardDiv);
-				dealerSum.push(dealerCard4.realValue);
-				dealerCount ++;
-				result = dealerCheck();
-			}else if (dealerCount === 4) {
-				var dealerCard5 = new Card();
-				dealerCard5.start();
-				dealerBox[4].append(dealerCard5.cardDiv);
-				dealerSum.push(dealerCard5.realValue);
-				dealerCount ++;
-				result = dealerCheck();
-			}else {
+	function playerLose() {
+		money = (money - resultInput);
+		$(".money").text("$" + money);
+		console.log(money);
+	}
 
+	function dealerCheck() {
+		var playerTotal = 0;
+		var result;
+		playerSum.map(function(item){ 
+			playerTotal += item; 
+		});	
+		var dealerTotal = 0; 
+		dealerSum.map(function(item){ 
+			dealerTotal += item; 
+		});
+		console.log(dealerTotal);
+		if (dealerTotal > 21) {
+			result = "bust";
+		}else if (dealerTotal === playerTotal) {
+			result = "tie";
+		}else if (dealerTotal < 21) {
+			if (dealerTotal < playerTotal) {
+				if (dealerCount === 2) {	
+					var dealerCard3 = new Card();
+					dealerCard3.start();
+					dealerBox[2].append(dealerCard3.cardDiv);
+					dealerSum.push(dealerCard3.realValue);
+					dealerCount ++;
+					result = dealerCheck();
+				}else if (dealerCount ===3 ) {
+					var dealerCard4 = new Card();
+					dealerCard4.start();
+					dealerBox[3].append(dealerCard4.cardDiv);
+					dealerSum.push(dealerCard4.realValue);
+					dealerCount ++;
+					result = dealerCheck();
+				}else if (dealerCount === 4) {
+					var dealerCard5 = new Card();
+					dealerCard5.start();
+					dealerBox[4].append(dealerCard5.cardDiv);
+					dealerSum.push(dealerCard5.realValue);
+					dealerCount ++;
+					result = dealerCheck();
+				}else {
+				}
 			}
 		}
-		
-	}else if (dealerTotal > 21) {
-		result = "bust"; 
-	}else if (dealerTotal === playerTotal) {
-		result = "tie";
+				return result;	
 	}
-	return result;
-	
-}
 
-function playerCheck() {		
-	var playerTotal = 0;
-	playerSum.map(function(item){ 
-		playerTotal += item; 
-	});
-	if (playerTotal > 21) {
-		alert("YOU BUSTED! Dealer Wins.");
+	function playerCheck() {		
+		var playerTotal = 0;
+		playerSum.map(function(item){ 
+			playerTotal += item; 
+		});
+		if (playerTotal > 21) {
+			alert("You Bust. Dealer Wins.");
+			hitButton.unbind();
+			standButton.unbind();
+			playerLose();
+			onNewGame();
+			onHit();
+			onStand();
+		}
 	}
-}
-
-
-
 
 };
 

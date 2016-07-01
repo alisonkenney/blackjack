@@ -34,31 +34,17 @@ body {
 	border-radius: 30px;
 }
 
-.scoreboard {
-	/*border: solid white 3px;*/
-	color: #B22222;
-	height: 300px;
-}
-
 .heading {
 	color: #FFFFE0;
 	text-align: center;
-}
-
-h2 {
-	color: #FFFFE0;
-	font-size: 25px;
-	text-align: center;
-}
-
-p {
-	display: inline-block;
+	font-family: comic sans;
 }
 
 .btn {
 	background-color: #FFFFE0;
-	width: 150px;
+	width: 140px;
 	margin-top: 5px;
+	text-align: center;
 }
 
 .new-game {
@@ -75,6 +61,48 @@ p {
 .stand {
 	color: #B22222;
 	font-weight: bold;
+}
+
+.place-bet {
+	background-color: #B22222;
+	color: #FFFFE0;
+	font-weight: bold;
+	width: 100px;
+	margin-bottom: 14px;
+	font-size: 14px;
+}
+
+.youHave {
+	display: inline-block;
+	color: #FFFFE0;
+	font-size: 25px;
+	margin-left: 100px;
+	font-family: comic sans;
+}
+
+.money {
+	display: inline-block;
+	color: #B22222;
+	font-size: 25px;
+	font-family: comic sans;
+	font-weight: bold;
+}
+
+.betDiv {
+	display: inline-block;
+	color: #FFFFE0;
+	font-size: 25px;
+	margin-left: 50px;
+	font-family: comic sans;
+}
+
+#bet {
+	width: 50px;
+	height: 30px;
+	margin-top: 10px;
+	color: black;
+	font-family: comic sans;
+	background-color: #FFFFE0;
 }
 
 .heartsa {
