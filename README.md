@@ -23,5 +23,5 @@ I was able to get a betting function to work in the end, which allows a player t
 
 Installation instructions
 -View and play game here - https://alisonkenney.github.io/blackjack/
--To install, fork the repository here - 
+-To install, fork the repository here - https://github.com/alisonkenney/blackjack
 
