@@ -2,43 +2,26 @@
 Link to Trello Project 1 - https://trello.com/b/HVhK8pEY/project-1
 
 Technologies Used:
-  -Bootstrap
+  -Bootstrap CSS
+  -Bootstrap JS
   -JQuery
 
-// function setCard() {
+Approach taken - I broke the game down into small user stories (listed below).
 
-	// var ace = document.createElement('div');
-	// var box = document.querySelector('#box2');
-	// ace.setAttribute('id', 'aceClubs');
-	// ace.setAttribute('class', 'card');
-	// box.appendChild(ace);
+1. As a player, I will be dealt any card in a standard 52 card deck at random so that it is possible to receive any combination of cards.
+2. As a player, I will be dealt a hand of cards automatically at the start of each new game so I can make a decision on my next move.
+3. As a player, I will have the option to "hit" or so that I will have control of my hand.
+4. As a player, I will have the option to "stand" or so that I will have control of my hand.
+5. As a player, I will be able to view the dealers cards after I have made my decision so I can see how much I won or lost by.
+6. As a player, I will be notified if the dealer "bust" (went over 21), or was closer to 21 than the dealer (without going over), so I know when I won.
+7. As a player, I will be notified if I "bust" (went over 21), or was farther from the 21 than the dealer, so I know when I lose.
+8. As a player, I will be notified when I tie the dealer so I can play again if I choose.
 
-	// }
-	// setCard();
+I approached each of these steps one at a time. There were several times when I realized I needed to make a different function in order to accomplish my current user story. I started with a card constructor which made it really easy for me to draw a new card whenever I needed one. Instead of using an API, I made classes for all the cards which pointed to their image url. 
 
-  
-  
-  /*function twoRandomScores() {
-    var score1 = Math.random(10);
-    var score2 = Math.random(10);
-    return score1 + score2;
-}
-twoRandomScores();
+I was able to get a betting function to work in the end, which allows a player to place a bet between 1 and 100, and they win that amount if they win the hand, and lose that amount if they lose the hand.
 
-var randomScore = Math.floor(Math.random()*52)+1;
-console.log("I got the score " + randomScore);
+Installation instructions
+-View and play game here - https://alisonkenney.github.io/blackjack/
+-To install, fork the repository here - https://github.com/alisonkenney/blackjack
 
-var deal = Math.floor(Math.random()*52)+1;
-var final = deal%13;
-console.log(final);
-
-
-var outcome;
-var deal = Math.floor(Math.random()*40)+1;
-if (deal%2 === 0) {
-    var outcome = "even";
-}else if (deal%2 !== 0) {
-    var outcome = "odd";
-}
-
-//confirm("Are you ready to move on?");*/
