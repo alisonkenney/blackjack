@@ -1,6 +1,6 @@
 window.onload = function() {
 
-alert("Welcome! Place your bet to start the game!");	
+swal({   title: "Blackjack 21",   text: "Welcome! Place your bet to start the game!",   imageUrl: "http://www.clipartkid.com/images/355/clip-art-kids-playing-chess-b-w-clip-art-dominos-G0zQkv-clipart.jpg" });
 
 var suitArray = ["hearts", "diamonds", "spades", "clubs"];
 var valueArray = [2,3,4,5,6,7,8,9,10,"j","q","k","a"];
@@ -18,6 +18,8 @@ var moneyShown = ("$" + money);
 var money = 100;
 var betInput;
 
+
+$("#my_audio").get(0).play();
 
 	function Card(playerBox, dealerBox) {
 		this.suit = "";
@@ -109,7 +111,7 @@ var betInput;
 		resultInput = parseInt(betInput);
 		console.log(betInput);
 
-		if ((betInput <= 100) && (betInput >=1)) {
+		if ((betInput <= money) && (betInput >=1)) {
 			layCards();
 			placeBetButton.unbind();
 		}else {
@@ -187,28 +189,28 @@ var betInput;
 		var result = dealerCheck();
 
 		if (result === "bust") {
-			alert("Dealer bust. You win!");
+			swal("Dealer Bust - You Win!", "Hit the New Game button to clear the board, and place your bet to start again.", "success");
 			hitButton.unbind();
 			standButton.unbind();
 			playerWin();
-			onNewGame();
 			onHit();
 			onStand();
+			onNewGame();
 		} else if (result === "tie") {
-			alert("You Tied. Play Again.");
+			swal("You Tied. Hit the New Game button to clear the board, and place your bet to start again.");
 			hitButton.unbind();
 			standButton.unbind();
-			onNewGame();
 			onHit();
 			onStand();
+			
 		} else {
-			alert("Dealer Wins. Play Again.");
+			swal("Dealer Wins", "Hit the New Game button to clear the board, and place your bet to start again.", "error");
 			hitButton.unbind();	
 			standButton.unbind();
 			playerLose();
-			onNewGame();
 			onHit();
 			onStand();
+			onNewGame();
 		}
 	}
 
@@ -275,13 +277,13 @@ var betInput;
 			playerTotal += item; 
 		});
 		if (playerTotal > 21) {
-			alert("You Bust. Dealer Wins.");
+			swal("You Bust - Dealer Wins.", "Hit the New Game button to clear the board, and place your bet to start again.", "error");
 			hitButton.unbind();
 			standButton.unbind();
 			playerLose();
-			onNewGame();
 			onHit();
 			onStand();
+			onNewGame();
 		}
 	}
 
