@@ -204,7 +204,7 @@ $("#my_audio").get(0).play();
 			onStand();
 			
 		} else {
-			swal("Dealer Wins", "Hit the New Game button to clear the board, and place your bet to start again.", "error");
+			swal("Dealer Wins.", "Hit the New Game button to clear the board, and place your bet to start again.", "error");
 			hitButton.unbind();	
 			standButton.unbind();
 			playerLose();
